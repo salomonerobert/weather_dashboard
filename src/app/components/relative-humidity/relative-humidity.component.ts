@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
-import { HourlyData, HourlyUnits, WeatherAPIResponseData } from 'src/app/core/interfaces';
-import { ChartDataService } from 'src/app/core/services/chart-data.service';
+import { ChartDataService } from '../../core/services/chart-data.service';
+import { HourlyData, HourlyUnits, WeatherAPIResponseData } from '../../core/interfaces';
 
 @Component({
   selector: 'app-relative-humidity-chart',
@@ -17,7 +17,9 @@ export class RelativeHumidityChartComponent {
       relativehumidity_2m: [],
       direct_radiation: []
     };
+
     this.relativeHumidityUnits = '';
+
     Chart.register(...registerables);
   }
 
@@ -52,19 +54,9 @@ export class RelativeHumidityChartComponent {
                     const time = new Date(dateValue).toLocaleTimeString([], {
                       hour: '2-digit',
                       minute: '2-digit',
-                    });
+                    })
 
-                    if (
-                      index === 0 ||
-                      new Date(dateValue).toLocaleDateString() !==
-                        new Date(
-                          this.getLabelForValue(index - 1)
-                        ).toLocaleDateString()
-                    ) {
-                      return `${date}, ${time}`;
-                    } else {
-                      return `${date}, ${time}`;
-                    }
+                    return `${date}, ${time}`;
                   },
                 },
               },

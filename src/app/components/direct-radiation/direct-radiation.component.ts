@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart, Tick, registerables } from 'chart.js';
-import { WeatherAPIResponseData, HourlyData } from 'src/app/core/interfaces';
-import { ChartDataService } from 'src/app/core/services/chart-data.service';
+import { Chart, registerables } from 'chart.js';
+import { WeatherAPIResponseData, HourlyData } from '../../core/interfaces';
+import { ChartDataService } from '../../core/services/chart-data.service';
 
 @Component({
   selector: 'app-direct-radiation-chart',
@@ -17,7 +17,9 @@ export class DirectRadiationChartComponent implements OnInit {
       relativehumidity_2m: [],
       direct_radiation: []
     };
+
     this.directRadiationUnits = '';
+
     Chart.register(...registerables);
   }
 
@@ -59,17 +61,7 @@ export class DirectRadiationChartComponent implements OnInit {
                       minute: '2-digit',
                     });
 
-                    if (
-                      index === 0 ||
-                      new Date(dateValue).toLocaleDateString() !==
-                        new Date(
-                          this.getLabelForValue(index - 1)
-                        ).toLocaleDateString()
-                    ) {
-                      return `${date}, ${time}`;
-                    } else {
-                      return `${date}, ${time}`;
-                    }
+                    return `${date}, ${time}`;
                   },
                 },
               },
