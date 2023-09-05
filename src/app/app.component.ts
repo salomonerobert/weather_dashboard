@@ -7,6 +7,7 @@ import { ChartDataService } from './core/services/chart-data.service';
 })
 export class AppComponent implements OnInit {
   constructor(private chartDataService: ChartDataService) {}
+  isNavbarCollapsed = true;
 
   ngOnInit(): void {
     this.chartDataService.fetchData().subscribe({
