@@ -1,23 +1,19 @@
-<div>
-  <h1>My Charts</h1>
-  <!-- Chart 1 -->
-  <canvas baseChart
-          [data]="chartData.chart1"
-          [labels]="['Data 1', 'Data 2']"
-          [chartType]="'line'">
-  </canvas>
-
-  <!-- Chart 2 -->
-  <canvas baseChart
-          [data]="chartData.chart2"
-          [labels]="['Data 1', 'Data 2']"
-          [chartType]="'bar'">
-  </canvas>
-
-  <!-- Chart 3 -->
-  <canvas baseChart
-          [data]="chartData.chart3"
-          [labels]="['Data 1', 'Data 2']"
-          [chartType]="'pie'">
-  </canvas>
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/">All Charts</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/temperature">Temperature Chart</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/direct-radiation">Direct Radiation</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/relative-humidity">Relative Humidity</a>
+    </li>
+  </ul>
+  <div>
+      <router-outlet></router-outlet>
+  </div>
 </div>
